@@ -1,154 +1,177 @@
 {
-    "interactionModel": {
-      "languageModel": {
-        "invocationName": "bob bank",
-        "intents": [
-          {
-            "name": "AMAZON.CancelIntent",
-            "samples": []
-          },
-          {
-            "name": "AMAZON.HelpIntent",
-            "samples": []
-          },
-          {
-            "name": "AMAZON.StopIntent",
-            "samples": []
-          },
-          {
-            "name": "AMAZON.NavigateHomeIntent",
-            "samples": [
-              "Voltar",
-              "Início",
-              "Voltar ao início"
-            ]
-          },
-          {
-            "name": "ConsultaSaldo",
-            "slots": [],
-            "samples": [
-              "Meu saldo",
-              "Qual o saldo da minha conta",
-              "Saldo",
-              "Quanto tenho em minha conta",
-              "Consultar saldo"
-            ]
-          },
-          {
-            "name": "AMAZON.YesIntent",
-            "samples": []
-          },
-          {
-            "name": "AMAZON.NoIntent",
-            "samples": []
-          },
-          {
-            "name": "ConsultaDados",
-            "slots": [],
-            "samples": [
-              "Minha conta",
-              "Dados da conta",
-              "Dados",
-              "Meus dados",
-              "Quais são meus dados"
-            ]
-          },
-          {
-            "name": "MorningCalls",
-            "slots": [],
-            "samples": [
-              "Abrir mornings",
-              "Escutar morning calls",
-              "Escutar",
-              "Morning",
-              "Tocar morning calls",
-              "Morning calls",
-              "Quero escutar os morning calls"
-            ]
-          },
-          {
-            "name": "ConsultaExtrato",
-            "slots": [
-              {
-                "name": "daysAgo",
-                "type": "AMAZON.NUMBER",
-                "samples": [
-                  "{daysAgo} dias atrás",
-                  "{daysAgo} dias",
-                  "quero de {daysAgo}",
-                  "{daysAgo}"
-                ]
-              }
-            ],
-            "samples": [
-              "Extrato de {daysAgo} dias atrás",
-              "Extrato de {daysAgo} dias",
-              "Meu extrato de {daysAgo}",
-              "Extrato de {daysAgo}",
-              "Consultar extrato de {daysAgo}",
-              "Consultar extrato",
-              "Extrato"
-            ]
-          }
-        ],
-        "types": []
-      },
-      "dialog": {
-        "intents": [
-          {
-            "name": "ConsultaExtrato",
-            "confirmationRequired": false,
-            "prompts": {},
-            "slots": [
-              {
-                "name": "daysAgo",
-                "type": "AMAZON.NUMBER",
-                "elicitationRequired": true,
-                "confirmationRequired": false,
-                "prompts": {
-                  "elicitation": "Elicit.Slot.118567657472.251889117892"
-                },
-                "validations": [
-                  {
-                    "type": "isGreaterThan",
-                    "prompt": "Slot.Validation.118567657472.251889117892.1118945753906",
-                    "value": "0"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "delegationStrategy": "ALWAYS"
-      },
-      "prompts": [
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "bob bank",
+      "intents": [
         {
-          "id": "Elicit.Slot.118567657472.251889117892",
-          "variations": [
-            {
-              "type": "PlainText",
-              "value": "Ops, não entendi a quantidade de dias que você quer consultar os seu extrato, por favor repita"
-            },
-            {
-              "type": "PlainText",
-              "value": "De quantos dias você quer consultar seu extrato?"
-            }
+          "name": "AMAZON.CancelIntent",
+          "samples": [
+            "Nada",
+            "Sair"
           ]
         },
         {
-          "id": "Slot.Validation.118567657472.251889117892.1118945753906",
-          "variations": [
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": [
+            "Para",
+            "Pare",
+            "Parar"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": [
+            "Voltar",
+            "Início",
+            "Voltar ao início"
+          ]
+        },
+        {
+          "name": "ConsultaSaldo",
+          "slots": [],
+          "samples": [
+            "Meu saldo",
+            "Qual o saldo da minha conta",
+            "Saldo",
+            "Quanto tenho em minha conta",
+            "Consultar saldo"
+          ]
+        },
+        {
+          "name": "AMAZON.YesIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NoIntent",
+          "samples": []
+        },
+        {
+          "name": "ConsultaDados",
+          "slots": [],
+          "samples": [
+            "Minha conta",
+            "Dados da conta",
+            "Dados",
+            "Meus dados",
+            "Quais são meus dados"
+          ]
+        },
+        {
+          "name": "MorningCalls",
+          "slots": [],
+          "samples": [
+            "Abrir mornings",
+            "Escutar morning calls",
+            "Escutar",
+            "Morning",
+            "Tocar morning calls",
+            "Morning calls",
+            "Quero escutar os morning calls"
+          ]
+        },
+        {
+          "name": "ConsultaExtratoDias",
+          "slots": [
             {
-              "type": "PlainText",
-              "value": "Diga o número de dias que você quer consultar seu extrato"
-            },
+              "name": "daysAgo",
+              "type": "AMAZON.NUMBER",
+              "samples": [
+                "{daysAgo} dias atrás",
+                "{daysAgo} dias",
+                "quero de {daysAgo}",
+                "{daysAgo}"
+              ]
+            }
+          ],
+          "samples": [
+            "Extrato de {daysAgo} dias atrás",
+            "Extrato de {daysAgo} dias",
+            "Meu extrato de {daysAgo} dias",
+            "Consultar extrato de {daysAgo}"
+          ]
+        },
+        {
+          "name": "AMAZON.PauseIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ResumeIntent",
+          "samples": []
+        },
+        {
+          "name": "ConsultaExtrato",
+          "slots": [],
+          "samples": [
+            "Minhas movimentações",
+            "Últimas transações",
+            "Extrato de hoje",
+            "Meu extrato de hoje",
+            "Extrato"
+          ]
+        }
+      ],
+      "types": []
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "ConsultaExtratoDias",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
             {
-              "type": "PlainText",
-              "value": "Você tem que dizer um número maior que zero"
+              "name": "daysAgo",
+              "type": "AMAZON.NUMBER",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.118567657472.251889117892"
+              },
+              "validations": [
+                {
+                  "type": "isGreaterThan",
+                  "prompt": "Slot.Validation.118567657472.251889117892.1118945753906",
+                  "value": "0"
+                }
+              ]
             }
           ]
         }
-      ]
+      ],
+      "delegationStrategy": "ALWAYS"
     },
-    "version": "7"
-  }
+    "prompts": [
+      {
+        "id": "Elicit.Slot.118567657472.251889117892",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Ops, não entendi a quantidade de dias que você quer consultar os seu extrato, por favor repita"
+          },
+          {
+            "type": "PlainText",
+            "value": "De quantos dias você quer consultar seu extrato?"
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.118567657472.251889117892.1118945753906",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Diga o número de dias que você quer consultar seu extrato"
+          },
+          {
+            "type": "PlainText",
+            "value": "Você tem que dizer um número maior que zero"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "5"
+}
