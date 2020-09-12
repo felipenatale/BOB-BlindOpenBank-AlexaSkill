@@ -1,14 +1,12 @@
-/**
- * This sample demonstrates handling intents from an Alexa skill using the Alexa Skills Kit SDK (v2).
- * Please visit https://alexa.design/cookbook for additional examples on implementing slots, dialog management,
- * session persistence, api calls, and more.
-**/
-
 const Alexa = require('ask-sdk-core');
 
+//Launch module
 const LaunchRequestHandler = require('./request-handlers/LaunchRequestHandler');
+
+//Custom BOB Bank modules
 const BalanceIntentHandler = require('./request-handlers/BalanceIntentHandler');
 
+//Default modules
 const HelpHandler = require('./request-handlers/HelpHandler');
 const CancelAndStopIntentHandler = require('./request-handlers/CancelAndStopIntentHandler');
 const FallbackIntentHandler = require('./request-handlers/FallbackIntentHandler');
@@ -16,11 +14,7 @@ const SessionEndedRequestHandler = require('./request-handlers/SessionEndedReque
 const IntentReflectorHandler = require('./request-handlers/IntentReflectorHandler');
 const ErrorHandler = require('./request-handlers/ErrorHandler');
 
-/**
- * This handler acts as the entry point for your skill, routing all request and response
- * payloads to the handlers above. Make sure any new handlers or interceptors you've
- * defined are included below. The order matters - they're processed top to bottom 
-**/
+//Add modules on lambda
 exports.handler = Alexa.SkillBuilders.custom()
     .addRequestHandlers(
         LaunchRequestHandler,
