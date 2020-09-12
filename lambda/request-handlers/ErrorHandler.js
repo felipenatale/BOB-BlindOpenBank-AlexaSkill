@@ -22,4 +22,4 @@ module.exports = {
             .reprompt(speakOutput)
             .getResponse();
     }
-};
+}

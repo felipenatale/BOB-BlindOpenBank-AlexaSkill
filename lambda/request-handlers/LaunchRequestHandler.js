@@ -10,12 +10,13 @@ module.exports = {
         
         //Login
         
+        //Add attr lastQuestion to question
         modifyAttr(handlerInput, 'lastQuestion', 'consulta-saldo-launch');
 
         return handlerInput.responseBuilder
-            .speak(msg.welcomeMsg + msg.getBalance)
+            .speak(msg.welcomeMsg + ' ' + msg.getBalance)
             .reprompt(msg.getBalance)
             .getResponse();
             
     }
-};
+}

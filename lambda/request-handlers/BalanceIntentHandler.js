@@ -2,6 +2,7 @@ const Alexa = require('ask-sdk-core');
 const msg = require('../app-messages');
 const { getAttr, clearAttr } = require('../utils/sessionHandler.js');
 const sayMoneyNumber = require('../utils/sayMoneyNumber');
+const bobApi = require('../utils/bobApi');
 
 module.exports = {
     canHandle(handlerInput) {
@@ -20,13 +21,17 @@ module.exports = {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' && (yesIntentFromLaunch || intentBalance);
         
     },
-    handle(handlerInput) {
+    async handle(handlerInput) {
         
-        //Consultar saldo
-        let balance = -1050.55;
+        //Ask API
+        let apiResponse = await bobApi(handlerInput, 'balance');
+        
+        //Get api response
+        let firstName = apiResponse.firstName;
+        let balance = apiResponse.balance;
 
         return handlerInput.responseBuilder
-            .speak('Seu saldo está ' + sayMoneyNumber(balance) + '!')
+            .speak(firstName + ', ' + 'seu saldo está ' + sayMoneyNumber(balance, true) + '!')
             .reprompt(msg.whatElseHelp)
             .getResponse();
             
