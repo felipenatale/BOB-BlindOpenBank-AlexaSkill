@@ -1,6 +1,6 @@
 const msg = require('../app-messages');
 
-module.exports = function(number){
+module.exports = function(number, saySignal){
     
     let signal = (number > 0);
     
@@ -17,10 +17,12 @@ module.exports = function(number){
         
     } else {
         
-        if(signal){
-            response += msg.positiveBalance + ' ';
-        } else {
-            response += msg.negativaBalance + ' ';
+        if(saySignal){
+            if(signal){
+                response += msg.positiveBalance + ' ';
+            } else {
+                response += msg.negativaBalance + ' ';
+            }
         }
         
         response += intNumber;
