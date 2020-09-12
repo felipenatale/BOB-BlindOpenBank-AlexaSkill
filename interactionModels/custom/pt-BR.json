@@ -1,0 +1,57 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "bob bank",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": [
+            "Voltar",
+            "Início",
+            "Voltar ao início"
+          ]
+        },
+        {
+          "name": "ConsultaSaldo",
+          "slots": [],
+          "samples": [
+            "saldo",
+            "quanto tenho em minha conta",
+            "consultar saldo"
+          ]
+        },
+        {
+          "name": "AMAZON.YesIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NoIntent",
+          "samples": []
+        },
+        {
+          "name": "ConsultaDados",
+          "slots": [],
+          "samples": [
+            "dados",
+            "meus dados",
+            "quais são meus dados"
+          ]
+        }
+      ],
+      "types": []
+    }
+  },
+  "version": "5"
+}
