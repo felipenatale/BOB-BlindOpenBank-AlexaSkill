@@ -6,8 +6,7 @@
         {
           "name": "AMAZON.CancelIntent",
           "samples": [
-            "Nada",
-            "Sair"
+            "Nada"
           ]
         },
         {
@@ -17,6 +16,7 @@
         {
           "name": "AMAZON.StopIntent",
           "samples": [
+            "Sair",
             "Para",
             "Pare",
             "Parar"
@@ -25,7 +25,6 @@
         {
           "name": "AMAZON.NavigateHomeIntent",
           "samples": [
-            "Voltar",
             "Início",
             "Voltar ao início"
           ]
@@ -64,6 +63,7 @@
           "name": "MorningCalls",
           "slots": [],
           "samples": [
+            "Tocar meus morning calls",
             "Abrir mornings",
             "Escutar morning calls",
             "Escutar",
@@ -111,6 +111,30 @@
             "Extrato de hoje",
             "Meu extrato de hoje",
             "Extrato"
+          ]
+        },
+        {
+          "name": "BancosCadastrados",
+          "slots": [],
+          "samples": [
+            "Quais meus bancos",
+            "Meus bancos",
+            "Bancos",
+            "Bancos cadastrados",
+            "Quais meus bancos cadastrados"
+          ]
+        },
+        {
+          "name": "SenhaUsuarioIntent",
+          "slots": [
+            {
+              "name": "senha",
+              "type": "AMAZON.FOUR_DIGIT_NUMBER"
+            }
+          ],
+          "samples": [
+            "minha senha é {senha}",
+            "{senha}"
           ]
         }
       ],
@@ -173,5 +197,5 @@
       }
     ]
   },
-  "version": "5"
+  "version": "12"
 }
