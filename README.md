@@ -5,10 +5,12 @@
 
 ## Motivação
 > Skill desenvolvida para o Hackaton 2020 do Banco Safra (Time 28)
+>
 > Esta skill é uma aplicação de interface de voz desenvolvida para integrar-se à API BOB. Esta API utiliza-se da tecnologia financeira chamada Open Banking para integração de instituições financeiras.
+>
 > A Skill BOB Bank e a API BOB foram pensadas e desenvolvidas inicialmente com foco em atender idosoe e pessoas PNEs - Portadoras de Necessidades Especiais, como deficientes visuais e deficientes motores. Porém, pôde-se notar que a abrangência da tecnologia pode se extender ainda mais e ser aderida por qualquer pessoa.
 
-## Tecnologia
+## Tecnologias
 > AWS Lambda Function - Alexa self hosted
 > Linguagem de programação: [Node.JS](https://nodejs.org)
 > [ASK SDK](https://www.npmjs.com/package/ask-sdk-core) - Alexa Skill Development Kit
@@ -38,3 +40,6 @@
 > Quais meus bancos cadastrados
 < (Lista de bancos cadastrados)
 ```
+
+## Teste da Skill
+> Para testar a Skill, em sua echo dot ou no aplicativo da alexa, entre em contato pelo e-mail wilfaustino@gmail.com
