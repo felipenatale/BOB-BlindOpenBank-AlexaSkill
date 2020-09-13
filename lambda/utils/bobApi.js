@@ -5,6 +5,9 @@ module.exports = function(handlerInput, endPoint, jsonBody){
     
     const jsonBodyString = JSON.stringify(jsonBody);
     
+    let mockUsers = [123,465,789];
+    let userNumber = Math.floor(Math.random() * 3);
+    
     var options = {
         host: 'www.wilson.eng.br', //base url
         port: 443, //port
@@ -12,8 +15,8 @@ module.exports = function(handlerInput, endPoint, jsonBody){
         method: 'GET', //method
         headers: {
             'Content-Type': 'application/json',
-            'UserId': Alexa.getUserId(handlerInput.requestEnvelope),
-            'DeviceId': Alexa.getDeviceId(handlerInput.requestEnvelope),
+            'UserId': mockUsers[userNumber], //Alexa.getUserId(handlerInput.requestEnvelope),
+            'DeviceId': mockUsers[userNumber], //Alexa.getDeviceId(handlerInput.requestEnvelope),
             'SessionId': handlerInput.requestEnvelope.session.sessionId
         }
     };
@@ -21,6 +24,10 @@ module.exports = function(handlerInput, endPoint, jsonBody){
     //Mapping routes
     if(endPoint === 'balance'){
         options.path += '/balance';
+        
+    } else if(endPoint === 'login'){
+        options.path += '/login';
+        options.method = 'POST';
     
     } else if(endPoint === 'today-transactions'){
         options.path += '/transactions';
@@ -30,8 +37,11 @@ module.exports = function(handlerInput, endPoint, jsonBody){
         
     } else if(endPoint === 'morning'){
         options.path += '/morning-calls';
-        
-    } else if(false) {
+
+    }
+    
+    //Body length
+    if(options.method === 'POST' || options.method === 'PUT'){
         options.headers['Content-Length'] = Buffer.byteLength(jsonBodyString);
     }
     
