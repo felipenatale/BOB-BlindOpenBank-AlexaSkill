@@ -12,19 +12,20 @@ module.exports = {
     },
     async handle(handlerInput) {
         
-        let apiResponse, transactions, speakOutput;
+        let apiResponse, transactions, speakOutput = '';
         
         //Today transactions
         if(Alexa.getIntentName(handlerInput.requestEnvelope) === 'ConsultaExtrato'){
             apiResponse = await bobApi(handlerInput, 'today-transactions');
             transactions = apiResponse.transactions;
-            speakOutput = msg.yoursTransactionsOf + ' hoje. ';
+            speakOutput = msg.yourTransactions + ': ';
             
         //Multiple-days transactions
         } else {
             const daysAgo = Alexa.getSlotValue(handlerInput.requestEnvelope, 'daysAgo');
             apiResponse = await bobApi(handlerInput, 'transactions', {daysAgo});
-            speakOutput = msg.yoursTransactionsOf + ' ' + daysAgo + ' dia' + (daysAgo===1?'':'s') + ' atrás. ';
+            transactions = apiResponse.transactions;
+            speakOutput = msg.yourTransactionsOf + ' ' + daysAgo + ' dia' + (daysAgo===1?'':'s') + ' atrás. ';
         }
 
         //Verify no transations
@@ -37,6 +38,9 @@ module.exports = {
                 speakOutput += transactions[i][0] + ' de ' + sayMoneyNumber(transactions[i][1],false) + ' em ' + transactions[i][2] + '. ';
             }
         }
+        
+        //Transaction end text
+        speakOutput += msg.transacrionsEnd;
         
         return handlerInput.responseBuilder
             .speak(speakOutput)

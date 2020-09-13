@@ -8,11 +8,11 @@ module.exports = {
     },
     handle(handlerInput) {
         
-        //const intentName = Alexa.getIntentName(handlerInput.requestEnvelope);
-        //const speakOutput = `Você acionou a trigger ${intentName}`;
+        const intentName = Alexa.getIntentName(handlerInput.requestEnvelope);
+        const speakOutput = `Você acionou a trigger ${intentName}`;
 
         return handlerInput.responseBuilder
-            .speak(msg.notCompreensive)
+            .speak(speakOutput + ' ' + msg.notCompreensive)
             .reprompt(msg.hiThere)
             .getResponse();
     }

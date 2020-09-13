@@ -3,11 +3,11 @@ const msg = require('../app-messages');
 
 module.exports = {
     canHandle(handlerInput) {
-        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-            && (
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' &&
+            (
                    Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.CancelIntent'
                 || Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.StopIntent'
-                || Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.NoIntent'
+                || Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.PauseIntent'
             );
     },
     handle(handlerInput) {

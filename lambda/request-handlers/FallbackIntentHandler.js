@@ -1,4 +1,5 @@
 const Alexa = require('ask-sdk-core');
+const msg = require('../app-messages');
 
 /* *
  * FallbackIntent triggers when a customer says something that doesn’t map to any intents in your skill
@@ -12,7 +13,7 @@ module.exports = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.FallbackIntent';
     },
     handle(handlerInput) {
-        const speakOutput = 'Desculpe, não consegui entender. Tente novamente, por favor!';
+        const speakOutput = msg.fallBack;
 
         return handlerInput.responseBuilder
             .speak(speakOutput)

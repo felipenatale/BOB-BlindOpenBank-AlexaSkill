@@ -19,17 +19,7 @@ module.exports = {
 
         return handlerInput.responseBuilder
             .speak(msg.openingMorningCalls)
-            .addDirective({
-                type: 'AudioPlayer.Play',
-                playBehavior: 'REPLACE_ALL',
-                audioItem: {
-                    stream: {
-                        token: "0",
-                        url: audioURL,
-                        offsetInMilliseconds: 100
-                    }
-                }
-            }).withShouldEndSession(true)
+            .addAudioPlayerPlayDirective('REPLACE_ALL', audioURL, Math.random(), 0, null)
             .getResponse();
             
     }

@@ -8,14 +8,9 @@ module.exports = {
     },
     handle(handlerInput) {
         
-        //Login
-        
-        //Add attr lastQuestion to question
-        modifyAttr(handlerInput, 'lastQuestion', 'consulta-saldo-launch');
-
         return handlerInput.responseBuilder
-            .speak(msg.welcomeMsg + ' ' + msg.getBalance)
-            .reprompt(msg.getBalance)
+            .speak(msg.welcomeMsg + ' ' + msg.msgPassword)
+            .reprompt(msg.msgPassword)
             .getResponse();
             
     }

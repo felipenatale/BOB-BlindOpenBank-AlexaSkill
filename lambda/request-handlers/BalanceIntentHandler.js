@@ -31,7 +31,7 @@ module.exports = {
         let balance = apiResponse.balance;
 
         return handlerInput.responseBuilder
-            .speak(firstName + ', ' + 'seu saldo está ' + sayMoneyNumber(balance, true) + '!')
+            .speak(firstName + ', ' + 'seu saldo está ' + sayMoneyNumber(balance, true) + '!' + msg.sayTransactions)
             .reprompt(msg.whatElseHelp)
             .getResponse();
             
