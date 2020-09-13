@@ -23,12 +23,20 @@ module.exports = {
             const apiResponse = await bobApi(handlerInput, 'login', loginObj);
             
             //Correct password
-            if(apiResponse.status === 404){
+            if(apiResponse.status === 200){
             
+                //Nickname
+                const nickname = apiResponse.response[0].account_info.Data.Account[0].Nickname;
+                
+                //Update session
                 modifyAttr(handlerInput, 'logado', true);
+                modifyAttr(handlerInput, 'nome', nickname);
+                
+                //Name
+                //const name = apiResponse.response[0].account_info.Data.Account[0].Account.Name;
                 
                 return handlerInput.responseBuilder
-                    .speak(msg.correctPassword + ' ' + msg.howCanIHelp)
+                    .speak('Olá ' + nickname + '! ' + msg.correctPassword + ' ' + msg.howCanIHelp)
                     .reprompt(msg.howCanIHelp)
                     .getResponse();
             
@@ -37,6 +45,7 @@ module.exports = {
                 
                 return handlerInput.responseBuilder
                     .speak(msg.wrongPassword)
+                    .reprompt('Vamos tentar novamente! ' + msg.msgPassword)
                     .getResponse();
                 
             }

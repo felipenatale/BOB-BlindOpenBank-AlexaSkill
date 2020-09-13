@@ -1,8 +1,9 @@
 module.exports = {
     
-    welcomeMsg: 'Olá! Seja bem-vindo ao BÓB <lang xml:lang="en-US">Blind Open Bank</lang>!',
+    welcomeMsg: 'Olá! Seja bem-vindo ao BÓB, <lang xml:lang="en-US">Blind Open Bank</lang>!',
     sayTransactions: 'Para consultar seu extrato, diga: extrato',
     transacrionsEnd: 'Fim do extrato.',
+    msgBalanceSafra: 'o saldo da sua conta no banco Safra está',
     msgPassword: 'Diga sua senha de quatro dígitos',
     authFirst: 'Primeiro você precisa autenticar-se!',
     erroMsg: 'Desculpe, algum problema técnico aconteceu! Tente novamente!',
@@ -23,6 +24,9 @@ module.exports = {
     enabledBanks: 'Este dispositivo está habilitado para o melhor banco do mundo: O Banco Safra!',
     correctPassword: 'Sua senha está correta!',
     wrongPassword: 'Senha incorreta! Até mais...',
-    howCanIHelp: 'Como posso te ajudar?'
+    howCanIHelp: 'Como posso te ajudar?',
+    creditLine: 'E seu limite de crédito é de',
+    debit: 'débito',
+    credit: 'crédito'
     
 }

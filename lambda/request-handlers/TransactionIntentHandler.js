@@ -17,14 +17,14 @@ module.exports = {
         //Today transactions
         if(Alexa.getIntentName(handlerInput.requestEnvelope) === 'ConsultaExtrato'){
             apiResponse = await bobApi(handlerInput, 'today-transactions');
-            transactions = apiResponse.transactions;
+            transactions = apiResponse.response.data.transaction;
             speakOutput = msg.yourTransactions + ': ';
             
         //Multiple-days transactions
         } else {
             const daysAgo = Alexa.getSlotValue(handlerInput.requestEnvelope, 'daysAgo');
             apiResponse = await bobApi(handlerInput, 'transactions', {daysAgo});
-            transactions = apiResponse.transactions;
+            transactions = apiResponse.response.data.transaction;
             speakOutput = msg.yourTransactionsOf + ' ' + daysAgo + ' dia' + (daysAgo===1?'':'s') + ' atrás. ';
         }
 
@@ -35,7 +35,11 @@ module.exports = {
         //List transaction
         } else {
             for(let i=0;i<transactions.length;i++){
-                speakOutput += transactions[i][0] + ' de ' + sayMoneyNumber(transactions[i][1],false) + ' em ' + transactions[i][2] + '. ';
+                let tr = transactions[i];
+                speakOutput += (tr.creditDebitIndicator.toLowerCase()==='credit' ? msg.credit : msg.debit)
+                            + ' de '
+                            + sayMoneyNumber(tr.amount.amount,false)
+                            + ' em "' + tr.transactionInformation + '". ';
             }
         }
         

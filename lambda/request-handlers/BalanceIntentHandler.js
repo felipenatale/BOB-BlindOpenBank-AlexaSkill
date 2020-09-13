@@ -25,13 +25,15 @@ module.exports = {
         
         //Ask API
         let apiResponse = await bobApi(handlerInput, 'balance');
-        
+
         //Get api response
-        let firstName = apiResponse.firstName;
-        let balance = apiResponse.balance;
+        let firstName = getAttr(handlerInput, 'nome');
+        let balance = apiResponse.response.Data.Balance[0].Amount.Amount;
+        let creditLine = apiResponse.response.Data.Balance[0].CreditLine[0].Amount.Amount;
 
         return handlerInput.responseBuilder
-            .speak(firstName + ', ' + 'seu saldo está ' + sayMoneyNumber(balance, true) + '!' + msg.sayTransactions)
+            //.speak(firstName + ', ' + msg.msgBalanceSafra + ' ' + sayMoneyNumber(balance, true) + '!' + msg.sayTransactions)
+            .speak(firstName + ', ' + msg.msgBalanceSafra + ' ' + sayMoneyNumber(balance, true) + '! ' + msg.creditLine + ' ' + sayMoneyNumber(creditLine, false))
             .reprompt(msg.whatElseHelp)
             .getResponse();
             

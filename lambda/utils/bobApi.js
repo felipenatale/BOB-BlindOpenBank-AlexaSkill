@@ -1,22 +1,29 @@
 const Alexa = require('ask-sdk-core');
-const https = require('https');
+const https = require('http');
+const { createAttr, getAttr, clearAttr } = require('../utils/sessionHandler.js');
 
 module.exports = function(handlerInput, endPoint, jsonBody){
     
+    //Simulate various devices and users on the endPoint
+    if(!getAttr(handlerInput, 'UserId') && !getAttr(handlerInput, 'DeviceId')){
+        let mockUsers = [123,456,789];
+        let userNumber = Math.floor(Math.random() * 3);
+        
+        createAttr(handlerInput, 'UserId', mockUsers[userNumber]);
+        createAttr(handlerInput, 'DeviceId', mockUsers[userNumber]);
+    }
+    
     const jsonBodyString = JSON.stringify(jsonBody);
     
-    let mockUsers = [123,465,789];
-    let userNumber = Math.floor(Math.random() * 3);
-    
     var options = {
-        host: 'www.wilson.eng.br', //base url
-        port: 443, //port
-        path: '/bob-api.php/v1', //API path
+        host: '###.amazonaws.com', //base url
+        port: 5001, //port
+        path: '', //API path
         method: 'GET', //method
         headers: {
             'Content-Type': 'application/json',
-            'UserId': mockUsers[userNumber], //Alexa.getUserId(handlerInput.requestEnvelope),
-            'DeviceId': mockUsers[userNumber], //Alexa.getDeviceId(handlerInput.requestEnvelope),
+            'UserId': getAttr(handlerInput, 'UserId'), //Alexa.getUserId(handlerInput.requestEnvelope),
+            'DeviceId': getAttr(handlerInput, 'DeviceId'), //Alexa.getDeviceId(handlerInput.requestEnvelope),
             'SessionId': handlerInput.requestEnvelope.session.sessionId
         }
     };
