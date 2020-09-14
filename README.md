@@ -6,7 +6,7 @@ Alexa Skill para o BOB - Open Blind Bank
 ## Motivação
 Skill desenvolvida para o **Hackaton 2020 do Banco Safra** (Time 28)
 
-Esta skill é uma **aplicação de interface de voz** desenvolvida para integrar-se à [**API BOB**](https://github.com/Gabriel94Dantas/BOBAPI). Esta API utiliza-se da tecnologia financeira conhecida como **Open Banking** para realizar a integração de instituições financeiras.
+Esta skill é uma **aplicação de interface de voz** desenvolvida para integrar-se à [**API BOB**](https://github.com/Gabriel94Dantas/BOB-BlindOpenBank-API). Esta API utiliza-se da tecnologia financeira conhecida como **Open Banking** para realizar a integração de instituições financeiras.
 
 A **Skill BOB Bank** e a **API BOB** foram pensadas e desenvolvidas inicialmente com foco em atender idosoe e pessoas PNEs - Portadoras de Necessidades Especiais, como deficientes visuais e deficientes motores. Porém, pôde-se notar que a abrangência da tecnologia pode se estender ainda mais e ser aderida por qualquer pessoa.
 
