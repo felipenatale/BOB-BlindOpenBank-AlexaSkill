@@ -23,7 +23,7 @@ O Node.js foi a linguagem de programação escolhida. Esta linguagem surgiu em 2
 O ASK SDK para Node.js é um kit de desenvolvimento para skills da Alexa e, atualmente, é compatível com Node.js, Java e Python. Este SDK tem o simples objetivo de auxiliar no desenvolvimento para que o código fique mais limpo e o tempo gasto com a programação seja reduzido.
 
 ## Vídeo demonstrativo
-> Em breve! ;)
+[![Vídeo demonstrativo](https://img.youtube.com/vi/vqEsKYkAwF8/0.jpg)](https://www.youtube.com/watch?v=vqEsKYkAwF8)
 
 ## Alguns Possíveis Diálogos
 Alguns diálogos possíveis são:
@@ -55,7 +55,3 @@ Alguns diálogos possíveis são:
 - echo studio
 - [Aplicativo **Amazon Alexa** na AppStore](https://apps.apple.com/br/app/amazon-alexa/id944011620)
 - [Aplicativo **Amazon Alexa** na Google Play Store](https://play.google.com/store/apps/details?id=com.amazon.dee.app&hl=pt_BR)
-
-## Testes da Skill
-
-> Para testar a skill, em sua **echo dot** ou no **aplicativo da Alexa** de seu celular, entre em contato pelo e-mail wilfaustino@gmail.com (@wilfaustino)
